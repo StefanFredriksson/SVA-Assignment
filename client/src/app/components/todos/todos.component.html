@@ -1,0 +1,21 @@
+<div id="todos-container">
+  <div id="todos">
+    <h2>To do's</h2>
+    <table>
+      <col class="col-complete">
+      <col class="col-title">
+      <thead>
+        <tr>
+          <th>Slutförd</th>
+          <th>Titel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos">
+          <td><input type="checkbox" [checked]="todo.completed"></td>
+          <td><p>{{todo.title}}</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

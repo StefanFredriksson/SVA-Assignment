@@ -1,0 +1,41 @@
+#todos-container {
+  width: calc(100vw - 400px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#todos-container #todos {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+#todos-container #todos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#todos-container #todos table .col-complete {
+  width: 10%;
+}
+
+#todos-container #todos table .col-title {
+  width: 90%;
+}
+
+#todos-container #todos table tr:nth-child(odd) td {
+  background: rgb(216, 216, 216);
+}
+
+#todos-container #todos table th,
+#todos-container #todos table td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+#todos-container #todos table th {
+  background: grey;
+}
