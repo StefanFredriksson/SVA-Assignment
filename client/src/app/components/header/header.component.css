@@ -1,19 +1,38 @@
 header {
-  width: 100vw;
+  width: 90vw;
   height: 50px;
-  position: relative;
-  border: 1px solid black;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  background: #bde0f2;
+  padding: 15px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px var(--shadow-color);
 }
 
-header .circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: red;
+header #moving-gradient {
+  width: 115px;
+  height: 50px;
+  display: flex;
+  background: linear-gradient(90deg, #d22630, #2598d5, #4ea83b, #f2a900, #d22630);
+  background-size: 400%;
   position: absolute;
+  left: 10px;
   top: 50%;
-  left: calc(10px + 25px * var(--i));
   transform: translateY(-50%);
+  mask: url("/assets/mask.png");
+  mask-size: cover;
+  animation: animate 16s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
 }
 
 header #header-title {
@@ -21,4 +40,17 @@ header #header-title {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 600px) {
+  header #moving-gradient {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  header #header-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
 }

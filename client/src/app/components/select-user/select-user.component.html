@@ -1,8 +1,17 @@
 <div id="select-user-container">
   <div id="selection">
     <h3>Användare</h3>
-    <select id='user-selection' (change)="onChange($event)">
-      <option *ngFor="let user of users" value="{{user.id}}">{{user.name}}</option>
-    </select>
+    <div id="select-container">
+      <div id="select" (click)="onClick()">
+        <p>{{selectText}}</p>
+        <div id="select-indicator">
+          <span [ngClass]="{'arrow-one' : !showOptions, 'cross-one': showOptions}"></span>
+          <span [ngClass]="{'arrow-two' : !showOptions, 'cross-two': showOptions}"></span>
+        </div>
+      </div>
+      <div id="options">
+        <app-user-option *ngFor="let user of users" [user]="user" [show]="showOptions"></app-user-option>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/User';
 
 @Component({
@@ -8,13 +9,23 @@ import { User } from '../../models/User';
 })
 export class SelectUserComponent implements OnInit {
   @Input() users: User[] = [];
-  @Output() onSelectUser: EventEmitter<number> = new EventEmitter();
+  showOptions: boolean = false;
+  selectText: string = 'Välj användare';
 
-  constructor() {}
+  constructor(private userService: UserService) {
+    this.userService.onUserSelected().subscribe((id) => {
+      const name = this.users.find((user) => user.id === id)?.name;
+
+      if (name) {
+        this.selectText = name;
+        this.showOptions = false;
+      }
+    });
+  }
 
   ngOnInit(): void {}
 
-  onChange(event: any) {
-    this.onSelectUser.emit(parseInt(event.target.value));
+  onClick() {
+    this.showOptions = !this.showOptions;
   }
 }

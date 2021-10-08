@@ -7,11 +7,86 @@
 }
 
 #select-user-container #selection {
-  width: 200px;
-  margin-top: 50px;
+  width: 300px;
 }
 
-#select-user-container #selection select {
-  width: 200px;
-  padding: 10px;
+#select-user-container #selection #select-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#select-user-container #selection #select-container #select {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9ecef;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px var(--shadow-color);
+}
+
+#select-user-container #selection #select-container #select:hover {
+  cursor: pointer;
+  background: #d8d8d8;
+}
+
+#select-user-container #selection #select-container #select p {
+  margin-left: 10px;
+}
+
+#select-user-container #selection #select-container #select #select-indicator {
+  width: 25px;
+  height: 30px;
+  margin-right: 20px;
+  position: relative;
+}
+
+#select-user-container #selection #select-container #select #select-indicator span {
+  width: 100%;
+  height: 5px;
+  background: #979797;
+  position: absolute;
+  top: 50%;
+  border-radius: 10px;
+  transition: 0.3s, background 0s;
+}
+
+#select-user-container #selection #select-container #select:hover #select-indicator span {
+  background: #686868;
+}
+
+#select-user-container #selection #select-container #select #select-indicator .arrow-one {
+  left: -8px;
+  transform: translateY(-50%) rotateZ(45deg);
+}
+
+#select-user-container #selection #select-container #select #select-indicator .arrow-two {
+  right: -8px;
+  transform: translateY(-50%) rotateZ(-45deg);
+}
+
+#select-user-container #selection #select-container #select #select-indicator .cross-one {
+  left: 0px;
+  transform: translateY(-50%) rotateZ(-45deg);
+}
+
+#select-user-container #selection #select-container #select #select-indicator .cross-two {
+  right: 0px;
+  transform: translateY(-50%) rotateZ(45deg);
+}
+
+#select-user-container #selection #select-container #options {
+  width: 100%;
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  #select-user-container {
+    width: 98vw;
+    height: auto;
+    align-items: initial;
+    margin-left: 1vw;
+  }
 }

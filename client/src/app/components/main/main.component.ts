@@ -12,24 +12,33 @@ import { Todo } from '../../models/Todo';
 export class MainComponent implements OnInit {
   users: User[] = [];
   todos: Todo[] = [];
+
   constructor(
     private userService: UserService,
     private todoService: TodoService
-  ) {}
+  ) {
+    this.userService.onUserSelected().subscribe((id) => {
+      this.updateTodos(id);
+    });
+  }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
-      this.users = users.map((user) => {
-        return { id: user.id, name: user.name };
-      });
+      this.users = Array.isArray(users)
+        ? users.map((user, ix) => {
+            return { id: user.id, name: user.name, ix };
+          })
+        : [];
     });
   }
 
   updateTodos(id: any) {
     this.todoService.getTodos(id).subscribe((todos) => {
-      this.todos = todos.map((todo) => {
-        return { title: todo.title, completed: todo.completed };
-      });
+      this.todos = Array.isArray(todos)
+        ? todos.map((todo) => {
+            return { title: todo.title, completed: todo.completed };
+          })
+        : [];
     });
   }
 }

@@ -1,5 +1,54 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  font-family: Georgia;
+  font-weight: normal;
+  color: #474747;
+}
+
+th {
+  font-family: 'Lato';
+  font-weight: bold;
+  color: #212529;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato';
+  font-weight: bold;
+  color: #d22630;
+}
+
+h1 {
+  font-size: 44px;
+  line-height: 55px;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 42px;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #2598d5, #bde0f2);
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
